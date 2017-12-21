@@ -26,7 +26,7 @@ import os
 from django import http
 from django import shortcuts
 from django.conf import settings
-from django.core import urlresolvers
+from django.urls import resolvers 
 from django.shortcuts import redirect
 from django.utils import html
 import jsonpickle
@@ -69,7 +69,7 @@ def _make_flow(request, scopes, return_url=None):
         scope=scopes,
         state=state,
         redirect_uri=request.build_absolute_uri(
-            urlresolvers.reverse("google_oauth:callback")))
+            resolvers.reverse("google_oauth:callback")))
 
     flow_key = _FLOW_KEY.format(csrf_token)
     request.session[flow_key] = jsonpickle.encode(flow)

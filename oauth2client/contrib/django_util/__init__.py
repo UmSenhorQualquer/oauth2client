@@ -408,7 +408,7 @@ def _redirect_with_params(url_name, *args, **kwargs):
     Returns:
         A properly formatted redirect string.
     """
-    url = urlresolvers.reverse(url_name, args=args)
+    url = resolvers.reverse(url_name, args=args)
     params = parse.urlencode(kwargs, True)
     return "{0}?{1}".format(url, params)
 
